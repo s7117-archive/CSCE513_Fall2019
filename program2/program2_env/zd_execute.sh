@@ -18,6 +18,34 @@
 #./quicksort > ./out/quicksort.out
 ################################################################################
 ##### Program 2 #####
+#--caches              
+#--l2cache             
+#--num-dirs=NUM_DIRS   
+#--num-l2caches=NUM_L2CACHES
+#--num-l3caches=NUM_L3CACHES
+#--l1d_size=L1D_SIZE   
+#--l1i_size=L1I_SIZE   
+#--l2_size=L2_SIZE     
+#--l3_size=L3_SIZE     
+#--l1d_assoc=L1D_ASSOC
+#--l1i_assoc=L1I_ASSOC
+#--l2_assoc=L2_ASSOC   
+#--l3_assoc=L3_ASSOC
+RED='\033[0;31m'
+WHITE='\033[0m'
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+# Must add options to run with different cache sizes.
+cd testing
+# Test Heapsort
+echo -e "${RED}${BOLD}----- HEAPSORT_RUN -----${WHITE}${NORMAL}"
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py -c ./heapsort
+mv m5out m5out_heapsort
+# Run Quicksort
+echo -e "${RED}${BOLD}----- QUICKSORT_RUN -----${WHITE}${NORMAL}"
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py -c ./quicksort
+mv m5out m5out_quicksort
+##### USING SIMPLE.PY #####
 #cd testing
 # Test Heapsort
 #/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_heapsort.py
@@ -25,12 +53,4 @@
 # Run Quicksort
 #/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_quicksort.py
 #mv m5out m5out_quicksort
-################################################################################
-# OLD SE.PY CONFIGURATION
-# Must add options to run with different cache sizes.
-# Test Heapsort
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config.py -c ./heapsort
-mv m5out m5out_heapsort
-# Run Quicksort
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config.py -c ./quicksort
-mv m5out m5out_quicksort
+

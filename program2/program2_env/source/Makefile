@@ -14,4 +14,4 @@ heapsort:
 	$(CC) heapsort.c -o heapsort
 
 clean:
-	rm heapsort quicksort
+	rm -r heapsort quicksort m5out* 
