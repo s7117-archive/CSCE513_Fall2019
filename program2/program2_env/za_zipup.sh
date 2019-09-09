@@ -9,9 +9,10 @@
 # This script tars and then gzips the source files found in the source directory
 # and places the resulting .tar.gz file in the submissions directory.
 ################################################################################
+HW="hw2"
 mkdir submission
 cd submission
-mkdir ./hw1_$USER
-cp -r ../source/* ./hw1_$USER
-tar -zcvf hw1_$USER.tar.gz ./hw1_$USER
-rm -r ./hw1_$USER
+mkdir ./${HW}_$USER
+cp -r ../source/* ./${HW}_$USER
+tar -zcvf ${HW}_$USER.tar.gz ./${HW}_$USER
+rm -r ./${HW}_$USER

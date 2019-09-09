@@ -9,9 +9,10 @@
 # This script unzips and untars your current submission in the submission
 # directory and moves the source files to the testing directory.
 ################################################################################
+HW="hw2"
 mkdir testing
 cd ./testing
 rm -r *
-tar -xvf ../submission/hw1_$USER.tar.gz
-cp -r ./hw1_$USER/* .
-rm -r ./hw1_$USER
+tar -xvf ../submission/${HW}_$USER.tar.gz
+cp -r ./${HW}_$USER/* .
+rm -r ./${HW}_$USER
