@@ -9,15 +9,15 @@
 # This script runs your executables compiled with the compile script through
 # the gem5 simulator.
 ################################################################################
-# Program 1
-cd testing
-mkdir out
+##### Program 1 #####
+#cd testing
+#mkdir out
 # Run heapsort
-./heapsort > ./out/heapsort.out
+#./heapsort > ./out/heapsort.out
 # Run quicksort
-./quicksort > ./out/quicksort.out
+#./quicksort > ./out/quicksort.out
 ################################################################################
-# Program 2
+##### Program 2 #####
 #cd testing
 # Test Heapsort
 #/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_heapsort.py
@@ -29,8 +29,8 @@ mkdir out
 # OLD SE.PY CONFIGURATION
 # Must add options to run with different cache sizes.
 # Test Heapsort
-#/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config.py -c ./heapsort
-#mv m5out m5out_heapsort
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config.py -c ./heapsort
+mv m5out m5out_heapsort
 # Run Quicksort
-#/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config.py -c ./quicksort
-#mv m5out m5out_quicksort
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config.py -c ./quicksort
+mv m5out m5out_quicksort
