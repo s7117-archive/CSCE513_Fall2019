@@ -9,15 +9,18 @@
 # This script runs your executables compiled with the compile script through
 # the gem5 simulator.
 ################################################################################
-##### Program 1 #####
-#cd testing
-#mkdir out
-# Run heapsort
-#./heapsort > ./out/heapsort.out
-# Run quicksort
-#./quicksort > ./out/quicksort.out
-################################################################################
+######################################
 ##### Program 2 #####
+######################################
+
+# COMMAND to Run with Caches
+# You must pass the --caches and --l2cache arguments to initialize the caches.
+# If you don't then you will can't use caches.
+#gem5_X86.opt ./config/se.py --caches --l2cache --l2_size=2MB -c quicksort
+
+######################################
+##### Cache command line options #####
+######################################
 #--caches              
 #--l2cache             
 #--num-dirs=NUM_DIRS   
@@ -31,6 +34,8 @@
 #--l1i_assoc=L1I_ASSOC
 #--l2_assoc=L2_ASSOC   
 #--l3_assoc=L3_ASSOC
+######################################
+
 RED='\033[0;31m'
 WHITE='\033[0m'
 BOLD=$(tput bold)
@@ -39,12 +44,19 @@ NORMAL=$(tput sgr0)
 cd testing
 # Test Heapsort
 echo -e "${RED}${BOLD}----- HEAPSORT_RUN -----${WHITE}${NORMAL}"
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py -c ./heapsort
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py --caches \
+ --l2cache --l1i_size="64kB" --l2_size="128kB" -c ./heapsort
 mv m5out m5out_heapsort
 # Run Quicksort
 echo -e "${RED}${BOLD}----- QUICKSORT_RUN -----${WHITE}${NORMAL}"
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py -c ./quicksort
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py --caches \
+ --l2cache --l1i_size="64kB" --l2_size="128kB" -c ./quicksort
 mv m5out m5out_quicksort
+
+################################################################################
+################################################################################
+################################################################################
+
 ##### USING SIMPLE.PY #####
 #cd testing
 # Test Heapsort
