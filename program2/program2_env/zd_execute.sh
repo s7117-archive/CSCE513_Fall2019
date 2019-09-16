@@ -40,29 +40,40 @@ RED='\033[0;31m'
 WHITE='\033[0m'
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
-# Must add options to run with different cache sizes.
+##### USING SIMPLE.PY #####
 cd testing
 # Test Heapsort
 echo -e "${RED}${BOLD}----- HEAPSORT_RUN -----${WHITE}${NORMAL}"
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py --caches \
- --l2cache --l1i_size="64kB" --l2_size="128kB" -c ./heapsort
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_heapsort.py
 mv m5out m5out_heapsort
 # Run Quicksort
 echo -e "${RED}${BOLD}----- QUICKSORT_RUN -----${WHITE}${NORMAL}"
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py --caches \
- --l2cache --l1i_size="64kB" --l2_size="128kB" -c ./quicksort
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_quicksort.py
 mv m5out m5out_quicksort
 
 ################################################################################
+
+##### USING SE.PY #####
+#RED='\033[0;31m'
+#WHITE='\033[0m'
+#BOLD=$(tput bold)
+#NORMAL=$(tput sgr0)
+# Must add options to run with different cache sizes.
+#cd testing
+# Test Heapsort
+#echo -e "${RED}${BOLD}----- HEAPSORT_RUN -----${WHITE}${NORMAL}"
+#/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py --caches \
+# --l2cache --l1i_size="64kB" --l2_size="128kB" -c ./heapsort
+#mv m5out m5out_heapsort
+# Run Quicksort
+#echo -e "${RED}${BOLD}----- QUICKSORT_RUN -----${WHITE}${NORMAL}"
+#/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/se.py --caches \
+# --l2cache --l1i_size="64kB" --l2_size="128kB" -c ./quicksort
+#mv m5out m5out_quicksort
+
+################################################################################
 ################################################################################
 ################################################################################
 
-##### USING SIMPLE.PY #####
-#cd testing
-# Test Heapsort
-#/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_heapsort.py
-#mv m5out m5out_heapsort
-# Run Quicksort
-#/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_quicksort.py
-#mv m5out m5out_quicksort
+
 
