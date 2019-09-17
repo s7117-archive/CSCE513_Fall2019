@@ -29,6 +29,12 @@ echo -e "${RED}${BOLD}----- QUICKSORT_RUN -----${WHITE}${NORMAL}"
 /usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./configs/simple_quicksort.py
 mv m5out m5out_quicksort
 
+# Get the miss rates
+echo "----- Heapsort Miss Rates -----" >> cache_miss_rates.out
+grep "# miss rate for overall accesses" m5out_heapsort/stats.txt >> cache_miss_rates.out
+echo "----- Quicksort Miss Rates -----" >> cache_miss_rates.out
+grep "# miss rate for overall accesses" m5out_quicksort/stats.txt >> cache_miss_rates.out
+
 ################################################################################
 ################################################################################
 ################################################################################
