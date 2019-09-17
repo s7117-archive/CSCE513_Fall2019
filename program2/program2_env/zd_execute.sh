@@ -22,11 +22,11 @@ NORMAL=$(tput sgr0)
 cd testing
 # Test Heapsort
 echo -e "${RED}${BOLD}----- HEAPSORT_RUN -----${WHITE}${NORMAL}"
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_heapsort.py
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./configs/simple_heapsort.py
 mv m5out m5out_heapsort
 # Run Quicksort
 echo -e "${RED}${BOLD}----- QUICKSORT_RUN -----${WHITE}${NORMAL}"
-/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./config/simple_quicksort.py
+/usr/local/3rdparty/gem5/build/X86/gem5_X86.opt ./configs/simple_quicksort.py
 mv m5out m5out_quicksort
 
 ################################################################################
